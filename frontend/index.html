@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>LLM App Playground</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <main class="container">
+        <h1>LLM App Playground</h1>
+
+        <p class="subtitle">
+            基础大模型应用流程：用户输入 → Prompt 构造 → LLM 调用 → 结果返回
+        </p>
+
+        <div class="flow">
+            用户输入 → 任务选择 → Prompt 构造 → 后端接口 → 模型输出
+        </div>
+
+        <div class="card">
+            <h2>输入区域</h2>
+
+            <label for="taskType">任务类型</label>
+            <select id="taskType">
+                <option value="summary">文本总结</option>
+                <option value="code_explain">代码解释</option>
+                <option value="daily_report">日报生成</option>
+                <option value="polish_translate">翻译润色</option>
+            </select>
+
+            <label for="userInput">用户输入</label>
+            <textarea id="userInput" placeholder="请输入你想让大模型处理的内容..."></textarea>
+
+            <button id="generateBtn">生成</button>
+        </div>
+
+        <div class="grid">
+            <div class="card">
+                <h2>后端构造的 Prompt</h2>
+                <pre id="promptBox">等待生成...</pre>
+            </div>
+
+            <div class="card">
+                <h2>模型输出结果</h2>
+                <pre id="answerBox">等待生成...</pre>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>后端连接状态</h2>
+            <p id="status">正在检查后端状态...</p>
+        </div>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
